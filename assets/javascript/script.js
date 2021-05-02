@@ -20,10 +20,9 @@ var clearHS = document.createElement("button")
 var resetButton = document.createElement("button")
 var response = document.createElement("p")
 if (JSON.parse(localStorage.getItem("highScores")) === null) {
-    var highScores = [];
-} else {
-    var highScores = JSON.parse(localStorage.getItem("highScores"))
+    localStorage.setItem("highScores", JSON.stringify([]));
 }
+var highScores = JSON.parse(localStorage.getItem("highScores"))
 pEl.textContent = "Enter initials: ";
 submitButton.textContent = "Submit";
 pEl.setAttribute("style", "margin-right: 10px; width: fit-content;")
@@ -105,18 +104,22 @@ function viewHighScores() {
     response.setAttribute("style", "display: none");
     articleEl.setAttribute("style", "display: none");
     startButton.setAttribute("style", "display: none;");
-    randVar = JSON.parse(localStorage.getItem("highScores"))
-        randVar.sort(function(a, b) {
-        return b.scores - a.scores
-    });
+    if (JSON.parse(localStorage.getItem("highScores")) === null) {
+        localStorage.setItem("highScores", JSON.stringify([]));
+        
+        randVar = JSON.parse(localStorage.getItem("highScores"))
+            randVar.sort(function(a, b) {
+            return b.scores - a.scores
+        });
 
-    for (i in randVar) {
-        ulEl.appendChild(document.createElement("li"));
-        ulEl.children[i].textContent = (parseInt(i) + 1) + ". " + randVar[i]["names"] + " - " + randVar[i]["scores"];
-        ulEl.setAttribute("style", "background: #ff8cff; width: 50%; margin-left: 20%; margin-top: 15px;");
-    }
-    clearHS.setAttribute("style", "display: block; margin-left: 20%; position: relative; top: -3px; left: 150px;")
-    resetButton.setAttribute("style", "display: block; margin-left: 20%; margin-right: 20px; position: relative; top: -35px;")
+        for (i in randVar) {
+            ulEl.appendChild(document.createElement("li"));
+            ulEl.children[i].textContent = (parseInt(i) + 1) + ". " + randVar[i]["names"] + " - " + randVar[i]["scores"];
+            ulEl.setAttribute("style", "background: #ff8cff; width: 50%; margin-left: 20%; margin-top: 15px;");
+        }
+        clearHS.setAttribute("style", "display: block; margin-left: 20%; position: relative; top: -3px; left: 150px;")
+        resetButton.setAttribute("style", "display: block; margin-left: 20%; margin-right: 20px; position: relative; top: -35px;")
+}
     for (i in choices) {
         choices[i].setAttribute("style", "display: none;");
     }
