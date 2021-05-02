@@ -57,8 +57,8 @@ function reset() {
     main.setAttribute("style", "display: flex;")
     main.children[0].setAttribute("style", "align-self: center; margin-left: 0px;");
     main.children[0].textContent = "Coding Quiz Challenge";
-    let stringVar = "Try to answer the following code-related questions within the time \nlimit. Keep in mind that incorrect answers will penalize your score/time \nby ten seconds"
-    main.children[1].textContent = stringVar
+    let stringVar = "Try to answer the following code-related questions within the time <br>limit. Keep in mind that incorrect answers will penalize your score/time <br>by ten seconds"
+    main.children[1].innerHTML = stringVar
     main.children[1].setAttribute("style", "display: block;")
     main.children[2].setAttribute("style", "display: block;")   
     resetButton.setAttribute("style", "display: none;") 
@@ -74,6 +74,7 @@ function intervals() {
     var interval = setInterval(function() {
         if (!((questionNumber - 1) < questions.length) || viewingHighScore) { 
             timeEl.textContent = time;
+            response.setAttribute("style", "display: none");
             clearInterval(interval);
             return;
         }
@@ -101,6 +102,7 @@ function viewHighScores() {
     main.children[0].textContent = "Highscores";
     main.children[0].setAttribute("style", "text-align: left; margin-left: 20%;");
     main.children[1].setAttribute("style", "display: none");
+    response.setAttribute("style", "display: none");
     articleEl.setAttribute("style", "display: none");
     startButton.setAttribute("style", "display: none;");
     randVar = JSON.parse(localStorage.getItem("highScores"))
