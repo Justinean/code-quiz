@@ -107,7 +107,7 @@ function viewHighScores() {
         randVar.sort(function(a, b) {
         return b.scores - a.scores
     });
-    console.log(randVar)
+
     for (i in randVar) {
         ulEl.appendChild(document.createElement("li"));
         ulEl.children[i].textContent = (parseInt(i) + 1) + ". " + randVar[i]["names"] + " - " + randVar[i]["scores"];
@@ -208,7 +208,6 @@ submitButton.addEventListener("click", function() {
         scores: time
     };
     highScores.push(randObj);
-    console.log(highScores)
     localStorage.setItem("highScores", JSON.stringify(highScores));
     viewHighScores();
 })
