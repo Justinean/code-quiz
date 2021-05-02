@@ -106,20 +106,19 @@ function viewHighScores() {
     startButton.setAttribute("style", "display: none;");
     if (JSON.parse(localStorage.getItem("highScores")) === null) {
         localStorage.setItem("highScores", JSON.stringify([]));
-        
-        randVar = JSON.parse(localStorage.getItem("highScores"))
-            randVar.sort(function(a, b) {
-            return b.scores - a.scores
-        });
+    }
+    randVar = JSON.parse(localStorage.getItem("highScores"))
+        randVar.sort(function(a, b) {
+        return b.scores - a.scores
+    });
 
-        for (i in randVar) {
-            ulEl.appendChild(document.createElement("li"));
-            ulEl.children[i].textContent = (parseInt(i) + 1) + ". " + randVar[i]["names"] + " - " + randVar[i]["scores"];
-            ulEl.setAttribute("style", "background: #ff8cff; width: 50%; margin-left: 20%; margin-top: 15px;");
-        }
-        clearHS.setAttribute("style", "display: block; margin-left: 20%; position: relative; top: -3px; left: 150px;")
-        resetButton.setAttribute("style", "display: block; margin-left: 20%; margin-right: 20px; position: relative; top: -35px;")
-}
+    for (i in randVar) {
+        ulEl.appendChild(document.createElement("li"));
+        ulEl.children[i].textContent = (parseInt(i) + 1) + ". " + randVar[i]["names"] + " - " + randVar[i]["scores"];
+        ulEl.setAttribute("style", "background: #ff8cff; width: 50%; margin-left: 20%; margin-top: 15px;");
+    }
+    clearHS.setAttribute("style", "display: block; margin-left: 20%; position: relative; top: -3px; left: 150px;")
+    resetButton.setAttribute("style", "display: block; margin-left: 20%; margin-right: 20px; position: relative; top: -35px;")
     for (i in choices) {
         choices[i].setAttribute("style", "display: none;");
     }
