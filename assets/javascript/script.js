@@ -1,6 +1,6 @@
 var main = document.querySelector("#main");
 var startButton = document.querySelector("#start");
-var questions = ["Commonly used data types DO NOT include ____.", "The condition in an if / else statement is enclosed within ____.", "Arrays in JavaScript can be used to store ____.", "String values must be enclosed within ____ when being assigned to variables", "A very useful tool used during development and debugging for pringing content to the debugger is ____"];
+var questions = ["Commonly used data types DO NOT include ____.", "The condition in an if / else statement is enclosed within ____.", "Arrays in JavaScript can be used to store ____.", "String values must be enclosed within ____ when being assigned to variables", "A very useful tool used during development and debugging for printing content to the debugger is ____"];
 var answers = [["strings", "booleans", "alerts", "numbers"], ["quotes", "curly brackets", "parenthesis", "square brackets"], ["numbers and strings", "other arrays", "booleans", "all of the above"], ["commas", "curly brackets", "quotes", "parenthesis"], ["JavaScript", "terminal / bash", "for loops", "console.log"]];
 var correct = [[false, false, true, false], [false, true, false, false], [false, false, false, true], [false, false, true, false], [false, false, false, true]];
 var choices = [document.createElement("BUTTON"), document.createElement("BUTTON"), document.createElement("BUTTON"), document.createElement("BUTTON")];
