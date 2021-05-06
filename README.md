@@ -10,4 +10,4 @@ or clear the leaderboard.
 
 !["Coding quiz"](./assets/images/project.png)
 
-https://justinean.github.io/coding-quiz/
+https://justinean.github.io/code-quiz/
