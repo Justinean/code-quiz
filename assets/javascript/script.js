@@ -113,9 +113,15 @@ function viewHighScores() {
     });
 
     for (i in randVar) {
-        ulEl.appendChild(document.createElement("li"));
+        let liEl = document.createElement("li");
+        if (parseInt(i) % 2 === 0){
+            liEl.setAttribute("style", "background-color: #00d9ff");
+        } else if (parseInt(i) % 2 !== 0) {
+            liEl.setAttribute("style", "background-color: #009089");
+        }
+        ulEl.appendChild(liEl)
         ulEl.children[i].textContent = (parseInt(i) + 1) + ". " + randVar[i]["names"] + " - " + randVar[i]["scores"];
-        ulEl.setAttribute("style", "background: #ff8cff; width: 50%; margin-left: 20%; margin-top: 15px;");
+        ulEl.setAttribute("style", "width: 50%; margin-left: 20%; margin-top: 15px;");
     }
     clearHS.setAttribute("style", "display: block; margin-left: 20%; position: relative; top: -3px; left: 150px;")
     resetButton.setAttribute("style", "display: block; margin-left: 20%; margin-right: 20px; position: relative; top: -35px;")
@@ -166,8 +172,8 @@ function checkAnswer(element) {
             twoSecs = time + 1;
         } else {
             time -= 10;
-            timeEl.textContent = time + 1;
-            twoSecs = time;
+            timeEl.textContent = time;
+            twoSecs = time + 1;
             response.textContent = "Wrong! "
             response.setAttribute("style", "display: block; text-align: left; margin-left: 20%; margin-top: 30px; padding-top: 8px; border-top: 2px solid gray;");
         }
